@@ -87,7 +87,7 @@ void Deck::shuffle(){
 
 int main(){
 
-	Deck  deck = new Deck();
+	Deck  deck;
 
 	cout << "\nDEBUG: NOW DRAWING CARDS FROM TOP OF DECK:\n";
 
