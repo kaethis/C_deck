@@ -8,7 +8,7 @@ using namespace std;
 /* AUTHOR:	Matt W. Martin
  *		kaethis@tasmantis.net
  *
- * MODIFIED:	05-May-2015, @kaethis
+ * MODIFIED:	07-May-2015, @kaethis
  */
 
 typedef int RANK;
@@ -60,34 +60,65 @@ void Card::print(){
 	 *    ascii[12] '---------------'    */
 
 	string  s;
+	string  sA[7];
 
-	string ascii[13] =	{",---------------,\n",
-				 "|               |\n",
-				 "|               |\n",
-				 "|               |\n",
-				 "|               |\n",
-				 "|               |\n",
-				 "|               |\n",
-				 "|               |\n",
-				 "|               |\n",
-				 "|               |\n",
-				 "|               |\n",
-				 "|               |\n",
+	string  ascii[13] =	{",---------------,\n",	"|               |\n",
+				 "|               |\n", "|               |\n",
+				 "|               |\n", "|               |\n",
+				 "|               |\n", "|               |\n",
+				 "|               |\n", "|               |\n",
+				 "|               |\n", "|               |\n",
 				 "'---------------'\n"};
 
 	switch(suit){
 
 		case CLUBS:
 				s = "\u2663";
+
+				sA[0] = "    .-.    ";
+				sA[1] = "   {   }   ";
+				sA[2] = " .-.   .-. ";
+				sA[3] = "{         }";
+				sA[4] = "'._.'|'._.'";
+				sA[5] = "     |     ";
+				sA[6] = "    '-'    ";
+
 				break;
 		case DIAMONDS:
-				s = "\u2666";
+				s = "\u2662";
+
+				sA[0] = "    /'\\    ";
+				sA[1] = "   /   \\   ";
+				sA[2] = "  /     \\  ";
+				sA[3] = " {       } ";
+				sA[4] = "  \\     /  ";
+				sA[5] = "   \\   /   ";
+				sA[6] = "    \\,/    ";
+
 				break;
 		case HEARTS:
-				s = "\u2665";
+				s = "\u2661";
+
+				sA[0] = " .--. .--. ";
+				sA[1] = "{    v    }";
+				sA[2] = " '       ' ";
+				sA[3] = "  \\     /  ";
+				sA[4] = "   \\   /   ";
+				sA[5] = "    \\ /    ";
+				sA[6] = "     v     ";
+
 				break;
 		case SPADES:
 				s = "\u2660";
+
+				sA[0] = "    .^.    ";
+				sA[1] = "   /   \\   ";
+				sA[2] = " .'     '. ";
+				sA[3] = "{         }";
+				sA[4] = " '-.-|-.-' ";
+				sA[5] = "     |     ";
+				sA[6] = "    '-'    ";
+
 				break;
 	}
 
@@ -96,7 +127,13 @@ void Card::print(){
 		case A:
 				ascii[1].replace(2, 2, "A ");
 				ascii[11].replace(13, 13, " A |\n");
-				ascii[6].replace(8, 8, s+"       ");
+				ascii[3].replace(3, 13, sA[0]+"  ");
+				ascii[4].replace(3, 13, sA[1]+"  ");
+				ascii[5].replace(3, 13, sA[2]+"  ");
+				ascii[6].replace(3, 13, sA[3]+"  ");
+				ascii[7].replace(3, 13, sA[4]+"  ");
+				ascii[8].replace(3, 13, sA[5]+"  ");
+				ascii[9].replace(3, 13, sA[6]+"  ");
 				break;
 		case 2:
 				ascii[1].replace(2, 2, "2 ");
